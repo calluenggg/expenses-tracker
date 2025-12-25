@@ -7,7 +7,7 @@ from google.oauth2.service_account import Credentials
 
 st.set_page_config(page_title="My Wallet")
 
-CATEGORIES = ["FOOD". "TRANSPORTATION", "SHOPPING", "BILLS", "GYM", "DATES", "MISCELLANEOUS"]
+CATEGORIES = ["FOOD", "TRANSPORTATION", "SHOPPING", "BILLS", "GYM", "DATES", "MISCELLANEOUS"]
 
 def get_google_sheet():
   scopes = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
