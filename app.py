@@ -88,25 +88,15 @@ elif page == "Dashboard":
     df_sav = pd.DataFrame(ws_savings.get_all_records())
 
    # CALCULATIONS
-    total_spent = 0
-    # NEW / SAFE CODE
-# 1. Clean Expenses
+    total_spent = 0  # <--- This is the safety line!
     if not df_exp.empty:
-    # The 'errors="coerce"' part deletes bad text automatically
         df_exp["Amount"] = pd.to_numeric(df_exp["Amount"], errors='coerce').fillna(0.0)
         total_spent = df_exp["Amount"].sum()
-
-# 2. Clean Savings
+        
+    total_saved = 0  # <--- This is the safety line!
     if not df_sav.empty:
         df_sav["Amount"] = pd.to_numeric(df_sav["Amount"], errors='coerce').fillna(0.0)
         total_saved = df_sav["Amount"].sum()
-    # SCORECARD
-    col1, col2 = st.columns(2)
-    col1.metric("💸 Total Spent", f"P{total_spent:,.2f}")
-    col2.metric("💰 Total Saved", f"P{total_saved:,.2f}")
-    
-    st.divider()
-
     # CHARTS
     if not df_exp.empty:
         st.subheader("Where is my money going?")
