@@ -10,7 +10,7 @@ st.set_page_config(page_title="My Wallet")
 CATEGORIES = ["FOOD". "TRANSPORTATION", "SHOPPING", "BILLS", "GYM", "DATES", "MISCELLANEOUS"]
 
 def get_google_sheet():
-  scopes = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive")
+  scopes = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
   creds_dict = st.secrets["gcp_service_accounts"]
   creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
   client = gspread.authorize(creds)
