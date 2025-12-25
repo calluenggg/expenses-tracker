@@ -89,13 +89,14 @@ elif page == "Dashboard":
 
    # CALCULATIONS
     total_spent = 0
+    # NEW / SAFE CODE
+# 1. Clean Expenses
     if not df_exp.empty:
-        # errors='coerce' turns bad data into NaN (Not a Number)
-        # .fillna(0) turns those NaNs into 0.0 so math still works
+    # The 'errors="coerce"' part deletes bad text automatically
         df_exp["Amount"] = pd.to_numeric(df_exp["Amount"], errors='coerce').fillna(0.0)
         total_spent = df_exp["Amount"].sum()
-        
-    total_saved = 0
+
+# 2. Clean Savings
     if not df_sav.empty:
         df_sav["Amount"] = pd.to_numeric(df_sav["Amount"], errors='coerce').fillna(0.0)
         total_saved = df_sav["Amount"].sum()
