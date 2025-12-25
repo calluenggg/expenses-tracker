@@ -33,7 +33,7 @@ except Exception as e:
   st.error(f"Connection Error: {e}")
 
 st.sidebar.title("My Wallet")
-page = st.side.radio("Go to", ["Log Expenses", "Add Savings", "Dashboard"])
+page = st.sidebar.radio("Go to", ["Log Expenses", "Add Savings", "Dashboard"])
 
 if page == "Log Expense":
     st.header("Log Expense")
