@@ -22,12 +22,12 @@ try:
   try: ws = sheet.worksheet("Expenses")
   except:
     ws = sheet.add_worksheet(title="Expenses", rows = 1000, cols = 4)
-    ws.append_row(["Date", "Category", "Item", "Ampount")]
+    ws.append_row(["Date", "Category", "Item", "Ampount"])
 
   try: ws = sheet.worksheet("Savings")
   except:
     ws = sheet.add_worksheet(title="Savings", rows = 1000, cols = 3)
-    ws.append_row(["Date", "Memo", "Amount")]
+    ws.append_row(["Date", "Memo", "Amount"])
 
 except Exception as e:
   st.error(f"Connection Error: {e}")
