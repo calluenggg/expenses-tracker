@@ -3,7 +3,7 @@ import gspread
 import pandas as pd
 import plotly.express as px
 from datetime import datetime
-from google.oauth2.service_account impoort Credentials
+from google.oauth2.service_account import Credentials
 
 st.set_page_config(page_title="My Wallet")
 
