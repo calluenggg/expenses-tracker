@@ -35,8 +35,8 @@ except Exception as e:
 st.sidebar.title("My Wallet")
 page = st.sidebar.radio("Go to", ["Log Expenses", "Add Savings", "Dashboard"])
 
-if page == "Log Expense":
-    st.header("Log Expense")
+if page == "Log Expenses":
+    st.header("Log Expenses")
     with st.form("expense_form", clear_on_submit=True):
         col1, col2 = st.columns(2)
         with col1: date = st.date_input("Date")
@@ -64,7 +64,7 @@ elif page == "Add Savings":
                 st.balloons()  # Fun animation!
                 st.toast(f"✅ Saved P{amount}!")
 
-elif page == "📊 Dashboard":
+elif page == "Dashboard":
     st.header("📊 Financial Snapshot")
     
     # Refresh Button
