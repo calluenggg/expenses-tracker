@@ -87,17 +87,18 @@ elif page == "Dashboard":
     df_exp = pd.DataFrame(ws.get_all_records())
     df_sav = pd.DataFrame(ws_savings.get_all_records())
 
-    # CALCULATIONS
+   # CALCULATIONS
     total_spent = 0
     if not df_exp.empty:
-        df_exp["Amount"] = pd.to_numeric(df_exp["Amount"])
+        # errors='coerce' turns bad data into NaN (Not a Number)
+        # .fillna(0) turns those NaNs into 0.0 so math still works
+        df_exp["Amount"] = pd.to_numeric(df_exp["Amount"], errors='coerce').fillna(0.0)
         total_spent = df_exp["Amount"].sum()
         
     total_saved = 0
     if not df_sav.empty:
-        df_sav["Amount"] = pd.to_numeric(df_sav["Amount"])
+        df_sav["Amount"] = pd.to_numeric(df_sav["Amount"], errors='coerce').fillna(0.0)
         total_saved = df_sav["Amount"].sum()
-
     # SCORECARD
     col1, col2 = st.columns(2)
     col1.metric("💸 Total Spent", f"P{total_spent:,.2f}")
