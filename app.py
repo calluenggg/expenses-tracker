@@ -51,7 +51,6 @@ if page == "Log Expenses":
 
 elif page == "Add Savings":
     st.header("Piggy Bank")
-    st.info("Pay yourself first!")
     
     with st.form("savings_form", clear_on_submit=True):
         date = st.date_input("Date")
